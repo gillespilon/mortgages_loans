@@ -15,6 +15,6 @@ interest = 3.29
 years = 25
 
 
-payment = principal*(((1+interest/200)**(1/6)-1))/(1-(((1+interest/200)**(1/6)))**-(years*12))
+payment = (principal*(((1+interest/200)**(1/6)-1)) /
+           (1-(((1+interest/200)**(1/6)))**-(years*12)))
 print(payment)
-
