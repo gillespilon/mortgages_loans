@@ -7,6 +7,9 @@ This script calculates various mortgages using Canadian formulae.
 
 time -f '%e' ./mortgage_calculator.py > mortgage_calculator.txt
 ./mortgage_calculator.py > mortgage_calculator.txt
+
+TODO:
+    Calculate total interest paid in all scenarios.
 '''
 
 
