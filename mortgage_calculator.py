@@ -10,11 +10,14 @@ time -f '%e' ./mortgage_calculator.py > mortgage_calculator.txt
 '''
 
 
-principal = 64300
-interest = 3.29
+import math
+
+
+principal = 100000
+interest = 6
 years = 25
 
 
 payment = (principal*(((1+interest/200)**(1/6)-1)) /
            (1-(((1+interest/200)**(1/6)))**-(years*12)))
-print(payment)
+print(round(payment,2))
