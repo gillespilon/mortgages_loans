@@ -13,8 +13,9 @@ time -f '%e' ./mortgage_calculator.py > mortgage_calculator.txt
 import math
 
 
-principal = float(input('What is the principal amount?  '))
-interest = float(input('What is the interest rate (%)? '))
+principal = float(input('What is the principal amount?           '))
+interest = float(input('What is the interest rate (%)?          '))
+years = float(input('What is the amortization period (year)? '))
 years = 25
 pmt = 639.81
 
