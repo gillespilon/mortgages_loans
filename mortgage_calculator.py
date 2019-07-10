@@ -21,7 +21,7 @@ pmt = float(input('What monthly payment would you make? '))
 
 payment = (principal*(((1+interest/200)**(1/6)-1)) /
            (1-(((1+interest/200)**(1/6)))**-(years*12)))
-print(f'Principal:               {principal} CAD\n'
+print(f'\nPrincipal:               {principal} CAD\n'
       f'Interest:                {interest} %\n'
       f'Amortization:            {years} year\n'
       f'Monthly payment to make: {round(payment, 2)} CAD\n')
