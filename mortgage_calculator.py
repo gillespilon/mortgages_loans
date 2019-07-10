@@ -16,15 +16,14 @@ import math
 principal = float(input('What is the principal amount?           '))
 interest = float(input('What is the interest rate (%)?          '))
 years = float(input('What is the amortization period (year)? '))
-years = 25
-pmt = 639.81
+pmt = float(input('What monthly payment would you make? '))
 
 
 payment = (principal*(((1+interest/200)**(1/6)-1)) /
            (1-(((1+interest/200)**(1/6)))**-(years*12)))
 print(f'Principal:               {principal} CAD\n'
       f'Interest:                {interest} %\n'
-      f'Amortization:            {years} years\n'
+      f'Amortization:            {years} year\n'
       f'Monthly payment to make: {round(payment, 2)} CAD\n')
 
 
