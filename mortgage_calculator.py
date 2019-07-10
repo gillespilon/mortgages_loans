@@ -21,7 +21,10 @@ pmt = 639.81
 
 payment = (principal*(((1+interest/200)**(1/6)-1)) /
            (1-(((1+interest/200)**(1/6)))**-(years*12)))
-print(round(payment, 2))
+print(f'Principal:               {principal} CAD\n'
+      f'Interest:                {interest} %\n'
+      f'Amortization:            {years} years\n'
+      f'Monthly payment to make: {round(payment, 2)} CAD\n')
 
 number_payments = (((math.log(1 - principal *
                    (((1 + interest/200)**(1/6) - 1)) / pmt)) /
