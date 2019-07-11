@@ -60,6 +60,7 @@ def getinfo():
     return principal, interest, years, pmt
 
 
-principal, interest, years, pmt = getinfo()
-calcpayment(principal, interest, years, pmt)
-calcnumpayments(principal, interest, pmt)
+if __name__ == '__main__':
+    principal, interest, years, pmt = getinfo()
+    calcpayment(principal, interest, years, pmt)
+    calcnumpayments(principal, interest, pmt)
