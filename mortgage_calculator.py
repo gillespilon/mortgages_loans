@@ -21,10 +21,6 @@ Payment = Principal x  ------------------------
 import math
 
 
-def justatest():
-    print('How old are you?')
-
-
 def calcpayment(principal, interest, years, pmt):
     payment = (principal*(((1+interest/200)**(1/6)-1)) /
                (1-(((1+interest/200)**(1/6)))**-(years*12)))
