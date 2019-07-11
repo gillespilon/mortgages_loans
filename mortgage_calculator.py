@@ -21,6 +21,10 @@ Payment = Principal x  ------------------------
 import math
 
 
+def justatest():
+    print('How old are you?')
+
+
 def calcpayment(principal, interest, years, pmt):
     payment = (principal*(((1+interest/200)**(1/6)-1)) /
                (1-(((1+interest/200)**(1/6)))**-(years*12)))
@@ -48,11 +52,14 @@ def calcnumpayments(principal, interest, pmt):
           f'Accrued interest:        {accrued_interest_two:10.2f} CAD\n')
 
 
-principal = float(input('What is the principal amount?           '))
-interest = float(input('What is the interest rate (%)?          '))
-years = float(input('What is the amortization period (year)? '))
-pmt = float(input('What monthly payment would you make?    '))
+def getinfo():
+    principal = float(input('What is the principal amount?           '))
+    interest = float(input('What is the interest rate (%)?          '))
+    years = float(input('What is the amortization period (year)? '))
+    pmt = float(input('What monthly payment would you make?    '))
+    return principal, interest, years, pmt
 
 
+principal, interest, years, pmt = getinfo()
 calcpayment(principal, interest, years, pmt)
 calcnumpayments(principal, interest, pmt)
