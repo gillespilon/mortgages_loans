@@ -21,7 +21,7 @@ Payment = Principal x  ------------------------
 import math
 
 
-def monthly_payment(principal, interest, years, pmt):
+def monthly_payment(principal, interest, years, payment_plus):
     payment_monthly = (principal*(((1+interest/200)**(1/6)-1)) /
                        (1-(((1+interest/200)**(1/6)))**-(years*12)))
     accrued_interest = payment_monthly * 12 * years - principal
@@ -34,16 +34,16 @@ def monthly_payment(principal, interest, years, pmt):
           f'Accrued interest:        {accrued_interest:10.2f} CAD\n')
 
 
-def number_payments(principal, interest, pmt):
+def number_payments(principal, interest, payment_plus):
     number_payments = (((math.log(1 - principal *
-                       (((1 + interest/200)**(1/6) - 1)) / pmt)) /
+                       (((1 + interest/200)**(1/6) - 1)) / payment_plus)) /
                        (-1 * math.log(((1+interest/200)**(1/6))))))
-    accrued_interest_two = pmt * number_payments - principal
+    accrued_interest_two = payment_plus * number_payments - principal
     print(f'\nPrincipal:               {principal:<10,.2f} CAD'
           .replace(',', ' '),
           f'\n'
           f'Interest:                {interest:10.2f} %\n'
-          f'Monthly payment made:    {pmt:10.2f} CAD\n'
+          f'Monthly payment made:    {payment_plus:10.2f} CAD\n'
           f'Number of payments:      {number_payments:7.0f}\n'
           f'Accrued interest:        {accrued_interest_two:10.2f} CAD\n')
 
@@ -52,11 +52,11 @@ def getinfo():
     principal = float(input('What is the principal amount?           '))
     interest = float(input('What is the interest rate (%)?          '))
     years = float(input('What is the amortization period (year)? '))
-    pmt = float(input('What monthly payment would you make?    '))
-    return principal, interest, years, pmt
+    payment_plus = float(input('What monthly payment would you make?    '))
+    return principal, interest, years, payment_plus
 
 
 if __name__ == '__main__':
-    principal, interest, years, pmt = getinfo()
-    monthly_payment(principal, interest, years, pmt)
-    number_payments(principal, interest, pmt)
+    principal, interest, years, payment_plus = getinfo()
+    monthly_payment(principal, interest, years, payment_plus)
+    number_payments(principal, interest, payment_plus)
