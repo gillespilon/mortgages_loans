@@ -22,15 +22,15 @@ import math
 
 
 def monthly_payment(principal, interest, years, pmt):
-    payment = (principal*(((1+interest/200)**(1/6)-1)) /
-               (1-(((1+interest/200)**(1/6)))**-(years*12)))
-    accrued_interest = payment * 12 * years - principal
+    payment_monthly = (principal*(((1+interest/200)**(1/6)-1)) /
+                       (1-(((1+interest/200)**(1/6)))**-(years*12)))
+    accrued_interest = payment_monthly * 12 * years - principal
     print(f'\nPrincipal:               {principal:<10,.2f} CAD'
           .replace(',', ' '),
           f'\n'
           f'Interest:                {interest:10.2f} %\n'
           f'Amortization:            {years:7.0f}    years\n'
-          f'Monthly payment to make: {payment:10.2f} CAD\n'
+          f'Monthly payment to make: {payment_monthly:10.2f} CAD\n'
           f'Accrued interest:        {accrued_interest:10.2f} CAD\n')
 
 
