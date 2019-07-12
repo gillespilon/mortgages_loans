@@ -56,6 +56,9 @@ def number_payments(principal, interest, payment_plus):
 
 
 def getinfo():
+    '''
+    Ask the user for inputs for the mortgage calculations.
+    '''
     principal = float(input('What is the principal amount?           '))
     interest = float(input('What is the interest rate (%)?          '))
     years = float(input('What is the amortization period (year)? '))
