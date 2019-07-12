@@ -21,7 +21,7 @@ Payment = Principal x  ------------------------
 import math
 
 
-def calcpayment(principal, interest, years, pmt):
+def monthly_payment(principal, interest, years, pmt):
     payment = (principal*(((1+interest/200)**(1/6)-1)) /
                (1-(((1+interest/200)**(1/6)))**-(years*12)))
     accrued_interest = payment * 12 * years - principal
@@ -34,7 +34,7 @@ def calcpayment(principal, interest, years, pmt):
           f'Accrued interest:        {accrued_interest:10.2f} CAD\n')
 
 
-def calcnumpayments(principal, interest, pmt):
+def monthly_payment(principal, interest, pmt):
     number_payments = (((math.log(1 - principal *
                        (((1 + interest/200)**(1/6) - 1)) / pmt)) /
                        (-1 * math.log(((1+interest/200)**(1/6))))))
@@ -58,5 +58,5 @@ def getinfo():
 
 if __name__ == '__main__':
     principal, interest, years, pmt = getinfo()
-    calcpayment(principal, interest, years, pmt)
-    calcnumpayments(principal, interest, pmt)
+    monthly_payment(principal, interest, years, pmt)
+    monthly_payment(principal, interest, pmt)
