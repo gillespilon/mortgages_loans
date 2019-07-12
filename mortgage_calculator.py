@@ -38,6 +38,10 @@ def monthly_payment(principal, interest, years, payment_plus):
 
 
 def number_payments(principal, interest, payment_plus):
+    '''
+    Calculate the number of monthly payments for an input amount with
+    twice-a-year compounding.
+    '''
     number_payments = (((math.log(1 - principal *
                        (((1 + interest/200)**(1/6) - 1)) / payment_plus)) /
                        (-1 * math.log(((1+interest/200)**(1/6))))))
