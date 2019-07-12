@@ -22,6 +22,9 @@ import math
 
 
 def monthly_payment(principal, interest, years, payment_plus):
+    '''
+    Calculate the monthly payment with twice-a-year compounding.
+    '''
     payment_monthly = (principal*(((1+interest/200)**(1/6)-1)) /
                        (1-(((1+interest/200)**(1/6)))**-(years*12)))
     accrued_interest = payment_monthly * 12 * years - principal
