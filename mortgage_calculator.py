@@ -8,11 +8,11 @@ This script calculates various mortgages using Canadian formulae.
 time -f '%e' ./mortgage_calculator.py > mortgage_calculator.txt
 ./mortgage_calculator.py > mortgage_calculator.txt
 
-                               i    1/6
+                               i    1/comp
                        ( 1 +  --- )       -   1
                               200
 Payment = Principal x  ------------------------
-                                    i   1/6    -12 x n
+                                    i   1/comp -12 x n
                        1 -  [ (1 + --- )     ]
                                    200
 '''
@@ -21,12 +21,12 @@ Payment = Principal x  ------------------------
 import math
 
 
-def monthly_payment(principal, interest, years, payment_plus):
+def monthly_payment(principal, interest, years, compounding, payment_plus):
     '''
     Calculate the monthly payment with twice-a-year compounding.
     '''
-    payment_monthly = (principal*(((1+interest/200)**(1/6)-1)) /
-                       (1-(((1+interest/200)**(1/6)))**-(years*12)))
+    payment_monthly = (principal*(((1+interest/200)**(1/compounding)-1)) /
+                       (1-(((1+interest/200)**(1/compounding)))**-(years*12)))
     accrued_interest = payment_monthly * 12 * years - principal
     print(f'\nPrincipal:               {principal:<10,.2f} CAD'
           .replace(',', ' '),
@@ -37,14 +37,15 @@ def monthly_payment(principal, interest, years, payment_plus):
           f'Accrued interest:        {accrued_interest:10.2f} CAD\n')
 
 
-def number_payments(principal, interest, payment_plus):
+def number_payments(principal, interest, compounding, payment_plus):
     '''
     Calculate the number of monthly payments for an input amount with
     twice-a-year compounding.
     '''
     number_payments = (((math.log(1 - principal *
-                       (((1 + interest/200)**(1/6) - 1)) / payment_plus)) /
-                       (-1 * math.log(((1+interest/200)**(1/6))))))
+                       (((1 + interest/200)**(1/compounding) - 1)) /
+                       payment_plus)) /
+                       (-1 * math.log(((1+interest/200)**(1/compounding))))))
     accrued_interest_two = payment_plus * number_payments - principal
     print(f'\nPrincipal:               {principal:<10,.2f} CAD'
           .replace(',', ' '),
@@ -62,11 +63,12 @@ def getinfo():
     principal = float(input('What is the principal amount?           '))
     interest = float(input('What is the interest rate (%)?          '))
     years = float(input('What is the amortization period (year)? '))
+    compounding = float(input('Months of compounding?                  '))
     payment_plus = float(input('What monthly payment would you make?    '))
-    return principal, interest, years, payment_plus
+    return principal, interest, years, compounding, payment_plus
 
 
 if __name__ == '__main__':
-    principal, interest, years, payment_plus = getinfo()
-    monthly_payment(principal, interest, years, payment_plus)
-    number_payments(principal, interest, payment_plus)
+    principal, interest, years, compounding, payment_plus = getinfo()
+    monthly_payment(principal, interest, years, compounding, payment_plus)
+    number_payments(principal, interest, compounding, payment_plus)
