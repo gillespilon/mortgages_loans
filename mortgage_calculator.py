@@ -8,11 +8,11 @@ This script calculates various mortgages using Canadian formulae.
 time -f '%e' ./mortgage_calculator.py > mortgage_calculator.txt
 ./mortgage_calculator.py > mortgage_calculator.txt
 
-                               i    1/comp
+                               i    1/compounding
                        ( 1 +  --- )       -   1
                               200
-Payment = Principal x  ------------------------
-                                    i   1/comp -12 x n
+Payment = Principal x  --------------------------------------
+                                    i   1/compounding -12 x n
                        1 -  [ (1 + --- )     ]
                                    200
 '''
