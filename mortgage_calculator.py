@@ -27,7 +27,13 @@ def main():
     number_payments(principal, interest, compounding, payment_plus)
 
 
-def monthly_payment(principal, interest, years, compounding, payment_plus):
+def monthly_payment(
+    principal: float,
+    interest: float,
+    years: float,
+    compounding: float,
+    payment_plus: float
+):
     '''
     Calculate the monthly payment with twice-a-year compounding.
     '''
