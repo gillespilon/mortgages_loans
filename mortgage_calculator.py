@@ -21,6 +21,12 @@ Payment = Principal x  --------------------------------------
 import math
 
 
+def main():
+    principal, interest, years, compounding, payment_plus = getinfo()
+    monthly_payment(principal, interest, years, compounding, payment_plus)
+    number_payments(principal, interest, compounding, payment_plus)
+
+
 def monthly_payment(principal, interest, years, compounding, payment_plus):
     '''
     Calculate the monthly payment with twice-a-year compounding.
@@ -69,6 +75,4 @@ def getinfo():
 
 
 if __name__ == '__main__':
-    principal, interest, years, compounding, payment_plus = getinfo()
-    monthly_payment(principal, interest, years, compounding, payment_plus)
-    number_payments(principal, interest, compounding, payment_plus)
+    main()
