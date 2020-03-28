@@ -5,8 +5,8 @@ Mortgages and loans
 
 This script calculates various mortgages using Canadian formulae.
 
-time -f '%e' ./mortgage_calculator.py > mortgage_calculator.txt
-./mortgage_calculator.py > mortgage_calculator.txt
+time -f '%e' ./mortgage_calculator.py
+./mortgage_calculator.py
 
                                i    1/compounding
                        ( 1 +  --- )       -   1
