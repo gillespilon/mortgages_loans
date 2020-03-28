@@ -5,7 +5,6 @@ Mortgages and loans
 
 This script calculates various mortgages using Canadian formulae.
 
-time -f '%e' ./mortgage_calculator.py
 ./mortgage_calculator.py
 
                                i    1/compounding
@@ -83,7 +82,7 @@ def getinfo() -> Tuple[float, float, float, float, float]:
     years = float(input('What is the amortization period (year)? '))
     compounding = float(input('Months of compounding?                  '))
     payment_plus = float(input('What monthly payment would you make?    '))
-    return principal, interest, years, compounding, payment_plus
+    return (principal, interest, years, compounding, payment_plus)
 
 
 if __name__ == '__main__':
