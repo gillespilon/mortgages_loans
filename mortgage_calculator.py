@@ -18,6 +18,7 @@ Payment = Principal x  --------------------------------------
 '''
 
 
+from typing import Tuple
 import math
 
 
@@ -73,7 +74,7 @@ def number_payments(
           f'Accrued interest:        {accrued_interest_two:10.2f} CAD\n')
 
 
-def getinfo():
+def getinfo() -> Tuple[float, float, float, float, float]:
     '''
     Ask the user for inputs for the mortgage calculations.
     '''
