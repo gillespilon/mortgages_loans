@@ -49,7 +49,12 @@ def monthly_payment(
           f'Accrued interest:        {accrued_interest:10.2f} CAD\n')
 
 
-def number_payments(principal, interest, compounding, payment_plus):
+def number_payments(
+    principal: float,
+    interest: float,
+    compounding: float,
+    payment_plus: float
+):
     '''
     Calculate the number of monthly payments for an input amount with
     twice-a-year compounding.
